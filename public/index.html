@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
         <link rel="stylesheet" href="style.css">
+        <script rel="text/javascript" src="script.js"></script>
         <title>Document</title>
     </head>
 
@@ -15,25 +16,26 @@
         <div class="container">
             <div class="div-form">
                 <form action="" method="post" id="mood-form">
-                    <p>Jenis Kelamin</p>
+                    <p class="form-label">Jenis Kelamin</p>
                     <select name="" id="" class="text-form">
                         <option value="man">Laki-laki</option>
                         <option value="woman">Perempuan</option>
 
                     </select>
-                    <p>Umur</p>
+                    <p class="form-label">Umur</p>
                     <input type="number" maxlength="2" min="1" max="100" placeholder="100" class="text-form" required>
-                    <p>Lokasi</p>
+                    <p class="form-label">Lokasi</p>
                     <input type="text" class="text-form" required>
-                    <p>Mood</p>
+                    <p class="form-label">Mood</p>
                     <div class="mood-row">
-                        <input type="radio" id="(＾▽＾)" name="mood_generator" value="(＾▽＾)">
+                        <input type="radio" id="happy-mood" class="mood-generator" value="(＾▽＾)">
                         <label for="(＾▽＾)">(＾▽＾)</label><br>
-                        <input type="radio" id="(ㅠ﹏ㅠ)" name="mood_generator" value="(ㅠ﹏ㅠ)">
+                        <input type="radio" id="sad-mood" class="mood-generator" value="(ㅠ﹏ㅠ)">
                         <label for="(ㅠ﹏ㅠ)">(ㅠ﹏ㅠ)</label><br>
-                        <input type="radio" id="୧༼ಠ益ಠ༽୨" name="mood_generator" value="୧༼ಠ益ಠ༽୨">
+                        <input type="radio" id="angry-mood" class="mood-generator" value="୧༼ಠ益ಠ༽୨">
                         <label for="୧༼ಠ益ಠ༽୨">୧༼ಠ益ಠ༽୨</label><br>
                     </div>
+                    <input type="submit" class="btn">
                 </form>
             </div>
         </div>
