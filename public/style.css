@@ -3,12 +3,14 @@
 }
 nav {
     background-color: #FF3838;
-    padding-bottom: 10px;
-text-align: center;
+    padding-bottom: 25px;
+    text-align: center;
+    width: 100%;
 
 }
 .navigator h1{
     color: #FFFFFF;
+    
 }
 
 .container{
@@ -23,8 +25,8 @@ text-align: center;
     width: max-content;
     margin: 0 auto;
     z-index: 10;
-    top: -10px;
-    padding: 5px 15px;
+    top: -15px;
+    padding: 0.5px 20px 50px 30px;
     
 }
 
@@ -36,8 +38,8 @@ form{
      */
     
     border-radius: 10px;
-    padding: 10px;
-    margin: auto;
+    padding: 20px;
+    margin: 5px;
     background-color: #ffffff;
     filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
 }
@@ -57,14 +59,6 @@ input[type=number]{
     text-align: left;
 }
 
-.ayam-rebus img{
-    font-size: 25px;
-    height: auto;
-    padding-bottom: 10px;
-    align-items: center;
-    width: 30px;
-    
-}
 
 input[type=checkbox]{
     display: none;
@@ -88,4 +82,8 @@ input[type=checkbox]{
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.25);
     margin: 10px 35%;
+}
+
+.image{
+    display: none;
 }

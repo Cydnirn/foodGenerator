@@ -56,5 +56,13 @@
     }
 .input {
     width: 100%;
+    border-radius: 20px;
+    
+
+
+}
+.form-label {
+    text-align: center;
+    font-family: 'Poppins';
 
 }
