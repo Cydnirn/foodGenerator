@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="responsive.css">
+        <link rel="stylesheet" href="dekstop.css">
         <script rel="text/javascript" src="script.js"></script>
         <title>Document</title>
     </head>
@@ -15,18 +15,25 @@
             <h1>Nama Aplikasi</h1>
         </nav>
         <div class="container">
+            <div class="image">
+                <img src="img/Ribeye-Steak-Recipe09.png">
+                <h2>Steak</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi explicabo sed, 
+                    earum eligendi similique corrupti fugiat minima qui quaerat hic perspiciatis officia iste id 
+                    eaque ipsa praesentium consectetur est obcaecati?</p>
+            </div>
             <div class="div-form">
                 <form action="" method="post" id="mood-form">
                     <p class="form-label">Jenis Kelamin</p>
-                    <select name="" id="" class="text-form">
+                    <select class="input"  name="" id="" class="text-form">
                         <option value="man">Laki-laki</option>
                         <option value="woman">Perempuan</option>
 
                     </select>
                     <p class="form-label">Umur</p>
-                    <input type="number" maxlength="2" min="1" max="100" placeholder="100" class="text-form" required>
+                    <input class="input" type="number" maxlength="2" min="1" max="100" placeholder="19" class="text-form" required>
                     <p class="form-label">Lokasi</p>
-                    <input type="text" class="text-form" required>
+                    <input class="input" type="text" class="text-form" required>
                     <p class="form-label">Mood</p>
                     <div class="mood-row">
                         <input type="radio" id="happy-mood" class="mood-generator" value="happy">
