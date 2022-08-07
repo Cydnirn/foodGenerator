@@ -12,7 +12,7 @@
 
     <body>
         <nav class="navigator">
-            <h1>Nama Aplikasi</h1>
+            <h1>Food and Drink Predictor</h1>
         </nav>
         <div class="container">
             <div class="image">
@@ -25,23 +25,22 @@
             <div class="div-form">
                 <form action="" method="POST" id="mood-form">
                     <p class="form-label">Jenis Kelamin</p>
-                    <select class="input"  name="sex" id="" class="text-form">
-                        <option value="man">Laki-laki</option>
-                        <option value="woman">Perempuan</option>
-
+                    <select name="sex" id="" class="text-form">
+                        <option value="Laki - Laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
                     </select>
                     <p class="form-label">Umur</p>
-                    <input class="input" name="age" type="number" maxlength="2" min="1" max="100" placeholder="19" class="text-form" required>
+                    <input name="age" type="number" maxlength="2" min="1" max="100" placeholder="18" class="text-form" required>
                     <p class="form-label">Lokasi</p>
-                    <input class="input" name="location" type="text" class="text-form" required>
+                    <input name="location" type="text" class="text-form" required>
                     <p class="form-label">Mood</p>
                     <div class="mood-row">
-                        <input type="radio" id="happy-mood" class="mood-generator" value="happy">
-                        <label for="(＾▽＾)">(＾▽＾)</label><br>
-                        <input type="radio" id="sad-mood" class="mood-generator" value="sad">
-                        <label for="(ㅠ﹏ㅠ)">(ㅠ﹏ㅠ)</label><br>
-                        <input type="radio" id="angry-mood" class="mood-generator" value="angry">
-                        <label for="୧༼ಠ益ಠ༽୨">୧༼ಠ益ಠ༽୨</label><br>
+                        <input type="radio" name="mood" id="happy-mood" class="mood-generator" value="happy">
+                        <label for="happy-mood">(＾▽＾)</label><br>
+                        <input type="radio" name="mood" id="sad-mood" class="mood-generator" value="sad">
+                        <label for="sad-mood">(ㅠ﹏ㅠ)</label><br>
+                        <input type="radio" name="mood" id="angry-mood" class="mood-generator" value="angry">
+                        <label for="angry-mood">୧༼ಠ益ಠ༽୨</label><br>
                     </div>
                     <input type="submit" class="btn">
                 </form>
