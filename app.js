@@ -34,3 +34,19 @@ app.get("/", function(req, res){
 app.use(helmet());
 app.use(limiter);
 
+app.post('/', function(req, res){
+    let sex = req.body.sex;
+    let age = req.body.age;
+    let mood = req.body.mood;
+
+    function generateParam(sex, age, mood){
+        return{
+            sex,
+            age,
+            mood,
+        }
+    }
+
+    const predParam = generateParam(sex, age, mood);
+    JSON.stringify(predParam);
+});
