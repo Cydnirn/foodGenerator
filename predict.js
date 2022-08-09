@@ -1,10 +1,10 @@
 //const fs = require('fs');
 
-function generateParam(sex, age, mood){
+function generateParam(sex, mood, age){
     return{
         'sex':sex,
-        'age':age,
-        'mood':mood
+        'mood':mood,
+        'age':age
     }
 }
 
