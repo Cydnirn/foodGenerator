@@ -1,14 +1,14 @@
 //const fs = require('fs');
 
-function generateParam(sex, mood, age){
+function generateParam(inSex, inMood, inAge){
     return{
-        'sex':sex,
-        'mood':mood,
-        'age':age
+        'sex':inSex,
+        'mood':inMood,
+        'age':inAge
     }
 }
 
-async function getpred(sex, mood, age){
+function getpred(sex, mood, age){
     let param = generateParam(sex, mood, age);
     param = JSON.stringify(param);
 

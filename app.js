@@ -53,9 +53,27 @@ app.post('/getpred', function(req, res){
     console.log(predjson);
 
     const spawn = require('child_process').spawn;
-    const pypred = spawn('python', ['magic/predict.py', predjson]);
+    const pypred = spawn('python', [__dirname+'/public/magic/predict.py', predjson]);
 
-    pypred.stdout.on('data', (data) => {
-        
+    pydata = '';
+
+    pypred.stdout.on('data', (stdData) => {
+        pydata += stdData.toString();
+        console.log(pydata);
+    });
+
+    pypred.stderr.on('data', (data) =>{
+        console.error('stderr:', data);
+    });
+
+    pypred.on('exit', (code) =>{
+        console.log("Child process exit with code", code, pydata);
+
+        let resultPred = JSON.parse(pydata);
+
+        let foodPred = resultPred['food'];
+        let drinkPred = resultPred['drink'];
+        console.log(foodPred, drinkPred);
+        res.send(pydata);
     });
 });

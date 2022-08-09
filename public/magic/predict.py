@@ -1,8 +1,6 @@
-import json
 from os import path
-import pickle
 import numpy as np
-import sys
+import pickle, sys, json
 
 filePath = path.abspath(__file__)
 dirPath = path.dirname(filePath)
@@ -77,11 +75,15 @@ drink_ohe = model["drink_ohe"]
 
 jsonFilePath = path.join(dirPath,"pred.json")
 
+#TEST DATA
+#
 #with open(jsonFilePath) as jsondata:
 #    dataPred = json.load(jsondata)
+#data = {"sex":"Laki - Laki", "mood":"Senang", "age":"20"}
+#data = json.dumps(data)
+#dataPred = json.loads(data)
 
-data = sys.argv[1]
-dataPred = json.loads(data)
+dataPred = json.loads(sys.argv[1])
 
 sexData = list(dataPred.values())[0]
 moodData = list(dataPred.values())[1]
@@ -122,7 +124,16 @@ X = [X]
 Ypred = forestModelFood.predict(X)
 Zpred = forestModelDrink.predict(X)
 
-print(inverse_ohe(food_LE, Ypred))
-print(inverse_ohe(drink_LE, Zpred))
+foodRes = inverse_ohe(food_LE, Ypred)
+drinkRes = inverse_ohe(drink_LE, Zpred)
 
-sys.stdout.flush()
+foodRes = foodRes[0]
+drinkRes = drinkRes[0]
+
+def defaultJson(t):
+    return f'{t}'
+
+resultpred = {'food': foodRes, 'drink': drinkRes}
+resultpred = json.dumps(resultpred)
+
+print(resultpred)
