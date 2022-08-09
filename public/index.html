@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="dekstop.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script rel="text/javascript" src="script.js"></script>
         <title>Document</title>
     </head>
@@ -23,7 +24,7 @@
                     eaque ipsa praesentium consectetur est obcaecati?</p>
             </div>
             <div class="div-form">
-                <form action="/" method="POST" id="mood-form">
+                <form action="/getpred" method="POST" id="mood-form">
                     <p class="form-label">Jenis Kelamin</p>
                     <select name="sex" id="" class="text-form">
                         <option value="Laki - Laki">Laki-laki</option>
@@ -35,11 +36,11 @@
                     <input name="location" type="text" class="text-form" required>
                     <p class="form-label">Mood</p>
                     <div class="mood-row">
-                        <input type="radio" name="mood" id="happy-mood" class="mood-generator" value="happy">
+                        <input type="radio" name="mood" id="happy-mood" class="mood-generator" value="Senang">
                         <label for="happy-mood">(＾▽＾)</label><br>
-                        <input type="radio" name="mood" id="sad-mood" class="mood-generator" value="sad">
+                        <input type="radio" name="mood" id="sad-mood" class="mood-generator" value="Sedih">
                         <label for="sad-mood">(ㅠ﹏ㅠ)</label><br>
-                        <input type="radio" name="mood" id="angry-mood" class="mood-generator" value="angry">
+                        <input type="radio" name="mood" id="angry-mood" class="mood-generator" value="Marah">
                         <label for="angry-mood">୧༼ಠ益ಠ༽୨</label><br>
                     </div>
                     <input type="submit" class="btn">

@@ -10,7 +10,11 @@ const body = 'public/index.html';
 const app = express();
 
 const server = http.createServer(app);
-server.listen(80);
+server.listen(80, function(){
+    let datetime = new Date();
+    let message = "Server running on port 80, Started at: " +datetime;
+    console.log(message); 
+});
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -34,19 +38,24 @@ app.get("/", function(req, res){
 app.use(helmet());
 app.use(limiter);
 
-app.post('/', function(req, res){
+//Import
+let predLib = require('./predict');
+
+let getPred = predLib.getpred;
+
+app.post('/getpred', function(req, res){
     let sex = req.body.sex;
     let age = req.body.age;
     let mood = req.body.mood;
 
-    function generateParam(sex, age, mood){
-        return{
-            sex,
-            age,
-            mood,
-        }
-    }
+    console.log(sex, mood, age);
+    predjson = getPred(sex, mood, age);
+    console.log(predjson);
 
-    const predParam = generateParam(sex, age, mood);
-    JSON.stringify(predParam);
+    const spawn = require('child_process').spawn;
+    const pypred = spawn('python', ['magic/predict.py', predjson]);
+
+    pypred.stdout.on('data', (data) => {
+        
+    });
 });

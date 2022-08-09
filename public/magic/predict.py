@@ -1,6 +1,8 @@
+import json
 from os import path
 import pickle
 import numpy as np
+import sys
 
 filePath = path.abspath(__file__)
 dirPath = path.dirname(filePath)
@@ -16,6 +18,18 @@ def inverse_ohe(label, arr):
         i = np.argmax(i)
         i = label.inverse_transform([i])
         return i
+
+def simplifyAge(age):
+    if age > 0  and age <= 5:
+        return "Balita"
+    elif age > 5 and age <= 12:
+        return "Anak - anak"
+    elif age > 12 and age <= 18:
+        return "Remaja"
+    elif age > 18 and age <= 50:
+        return "Dewasa"
+    elif age > 50 and age <= 200:
+        return "lansia"
 
 model = load_model()
 
@@ -56,35 +70,59 @@ drink_ohe = model["drink_ohe"]
 """
 
 #Format for array is [[Sex, Mood, Age]]
-s_test = "Perempuan"
-m_test = "Marah"
-age_test = ["Dewasa"]
 
-#Manual OneHotEncoding
-if (s_test == "Laki - Laki"):
-    s_test = [1, 0]
-else:
-    s_test = [0, 1]
-s_test = np.array(s_test)
+#Input data from node.js
+#data = sys.argv[1]
+#data = json.loads(data)
 
-if (m_test == "Marah"):
-    m_test = [1, 0, 0]
-elif (m_test == "Sedih"):
-    m_test = [0, 1, 0]
-else:
-    m_test = [0, 0, 1]
-m_test = np.array(m_test)
+jsonFilePath = path.join(dirPath,"pred.json")
 
-age_test = age_LE.fit_transform([age_test])
-age_test = age_test.astype(float)
-age_test = np.array(age_test)
-age_test = age_test.flatten()
-print(s_test, m_test, age_test)
-X = np.concatenate((s_test, m_test, age_test))
-print(X)
+#with open(jsonFilePath) as jsondata:
+#    dataPred = json.load(jsondata)
+
+data = sys.argv[1]
+dataPred = json.loads(data)
+
+sexData = list(dataPred.values())[0]
+moodData = list(dataPred.values())[1]
+ageData = list(dataPred.values())[2]
+
+ageData = simplifyAge(int(ageData))
+
+#OneHotEncoding data
+def encodeSex(data):
+    if(data == "Laki - Laki"):
+        data = [1, 0]
+    else:
+        data = [0, 1]
+    data = np.array(data)
+    return data
+
+def encodeMood(data):
+    if (data == "Marah"):
+        data = [1, 0, 0]
+    elif (data == "Sedih"):
+        data = [0, 1, 0]
+    else:
+        data = [0, 0, 1]
+    data = np.array(data)
+    return data
+
+sexData = encodeSex(sexData)
+moodData = encodeMood(moodData)
+
+ageData = age_LE.fit_transform([[ageData]])
+ageData = ageData.astype(float)
+ageData = np.array(ageData)
+ageData = ageData.flatten()
+
+X = np.concatenate((sexData, moodData, ageData))
+
 X = [X]
 Ypred = forestModelFood.predict(X)
 Zpred = forestModelDrink.predict(X)
 
 print(inverse_ohe(food_LE, Ypred))
 print(inverse_ohe(drink_LE, Zpred))
+
+sys.stdout.flush()
