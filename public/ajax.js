@@ -1,1 +1,62 @@
-let headers=new Headers;headers.append("key","value");const RENDER_EVENT="render-predict";function makePred(e){let o=document.createElement("h2");o.innerText=e.food;let n=document.createElement("h2");n.innerText=e.drink;const c=document.createElement("div");return c.classList.add("pred-cont"),c.append(o,n),c}$(document).ready((()=>{console.log("DOM READY"),$("form").submit((e=>{let o,n,c;e.preventDefault(),o=$("#sex").val(),n=$("input[name='mood']:checked").val(),c=$("#age").val(),console.log(o,n,c),$.ajax({url:"/getpred",data:{sex:o,mood:n,age:c},method:"POST",contentType:"application/x-www-form-urlencoded",success:e=>{console.log("Success"),console.log(e),e=JSON.parse(e),console.log(e.food),console.log(e.drink);const o=document.getElementById("contPred");o.innerHTML="";const n=makePred(e);o.append(n)},error:e=>{console.log(e)}}),console.log("Submit button pressed")}))}));
+let headers = new Headers();
+headers.append("key","value");
+
+function makePred(pred){
+    //const foodDesc = JSON.parse(__dirname+'desc/food.json');
+    //const drinkDesc = JSON.parse(__dirname+'desc/drink.json');
+    
+    let food = document.createElement('h2');
+    food.innerText = pred.food; 
+
+    let drink = document.createElement('h2');
+    drink.innerText = pred.drink;
+
+    /*
+    let foodPDesc = document.createElement('p');
+    */
+
+    const containerPred = document.createElement("div");
+    containerPred.classList.add("pred-cont");
+    containerPred.append(food, drink);
+
+    return containerPred;
+}
+
+$(document).ready(() => {
+    console.log("DOM READY");
+    $('form').submit((e) => {
+        e.preventDefault();
+        let sexData, moodData, ageData;
+        sexData = $('#sex').val();
+        moodData = $("input[name='mood']:checked").val();
+        ageData = $('#age').val();
+        
+        console.log(sexData, moodData, ageData);
+        
+        $.ajax({
+            url: "/getpred",
+            data: {"sex": sexData, "mood": moodData, "age": ageData},
+            method: "POST",
+            contentType : "application/x-www-form-urlencoded",
+            success : (res) =>{
+                console.log("Success");
+                console.log(res);
+                res = JSON.parse(res);
+                console.log(res.food);
+                console.log(res.drink);
+
+                const contPred = document.getElementById("contPred");
+                contPred.innerHTML = "";
+
+                const elementPred = makePred(res);
+
+                contPred.append(elementPred);
+            },
+            error: (err) =>{
+                console.log(err);
+            }
+        });
+
+        console.log("Submit button pressed");
+    });
+});
