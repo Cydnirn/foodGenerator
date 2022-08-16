@@ -1,7 +1,7 @@
 # foodGenerator
 Generate Food by Mood
 
-# Summary
+# Description
 This is a project for SaaS (Software as a Service) subject in SMKN 1 Jakarta which predict foods and drinks based by mood
 
 Developed by Group 2 in XII SIJA I which consist of:
@@ -11,3 +11,5 @@ Developed by Group 2 in XII SIJA I which consist of:
 - Putra Ahmad Salafi (Data Collecting)
 - Rizqy Tyanda Garjzla (Front-end)
 - Seno Aji (Project Manager, Back-end, Machine Learning)
+
+Special Thanks to Aditya Putra Ramadhan for the inspiration
