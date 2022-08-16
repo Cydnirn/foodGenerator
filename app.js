@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit'); 
+//const httpMsgs = require('http-msgs');
 
 const body = 'public/index.html';
 
@@ -44,10 +45,12 @@ let predLib = require('./predict');
 let getPred = predLib.getpred;
 
 app.post('/getpred', function(req, res){
+    
     let sex = req.body.sex;
     let age = req.body.age;
     let mood = req.body.mood;
-
+    
+   
     console.log(sex, mood, age);
     predjson = getPred(sex, mood, age);
     console.log(predjson);

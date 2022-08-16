@@ -1,5 +1,5 @@
 @media only screen and (min-width:768px){
-    .image{
+    .image-back{
         display: inline-block;
         margin: auto;
         background: #FFFFFF;
@@ -7,6 +7,15 @@
         border-radius: 15px;
         padding: 25px;
         top: auto;
+    }
+    
+    .image{
+        display: inline-block;
+        margin: auto;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        padding: 25px;
     }
     .image img{
         width: 400px;
@@ -24,7 +33,20 @@
         margin-top: 10px;
     }
 
-    .div-form{
+    .predlabel h1{
+        margin: 445px 25px 50px 25px;
+    }
+    .pred-cont{
+        display: block;
+        margin: auto;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        padding: 25px;
+        margin: 25px 25px 50px 25px;
+    }
+
+    .div-form-back{
         position: relative;
         top: auto;
         box-sizing: content-box;
@@ -38,8 +60,22 @@
         margin-bottom: auto;
     }
 
-    .container {
+    .div-form{
+        position: relative;
+        box-sizing: content-box;
+        width: 300px;
+        height: auto;
+        background-color: #fff;
+        padding: 15px 200px 50px 2%;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: auto;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: row;
         font-family: 'popinsregular';
         position: relative;
         height: 126px;
@@ -51,7 +87,7 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 18px;
-        }
+    }
 }
 
 

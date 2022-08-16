@@ -130,9 +130,6 @@ drinkRes = inverse_ohe(drink_LE, Zpred)
 foodRes = foodRes[0]
 drinkRes = drinkRes[0]
 
-def defaultJson(t):
-    return f'{t}'
-
 resultpred = {'food': foodRes, 'drink': drinkRes}
 resultpred = json.dumps(resultpred)
 

@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="dekstop.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script rel="text/javascript" src="script.js"></script>
+        <script rel="text/javascript" src="ajax.js"></script>
         <title>Food Generator</title>
     </head>
 
@@ -15,38 +15,44 @@
         <nav class="navigator">
             <h1>Food and Drink Predictor</h1>
         </nav>
-        <div class="container">
-            <div class="image">
-                <img src="img/Ribeye-Steak-Recipe09.png">
-                <h2>Steak</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi explicabo sed, 
-                    earum eligendi similique corrupti fugiat minima qui quaerat hic perspiciatis officia iste id 
-                    eaque ipsa praesentium consectetur est obcaecati?</p>
+        
+            <div class="container">
+                <div class="image">
+                    <img src="img/Ribeye-Steak-Recipe09.png">
+                    <h2>Steak</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi explicabo sed, 
+                        earum eligendi similique corrupti fugiat minima qui quaerat hic perspiciatis officia iste id 
+                        eaque ipsa praesentium consectetur est obcaecati?</p>
+                </div>
+                <div class="div-form">
+                    <form action="/getpred" enctype="application/x-www-form-urlencoded" method="POST">Jenis Kelamin</p>
+                        <select name="sex" id="sex" class="text-form">
+                            <option value="Laki - Laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                        <p class="form-label">Umur</p>
+                        <input name="age" id="age" type="number" maxlength="2" min="1" max="100" placeholder="18" class="text-form" required>
+                        <p class="form-label">Lokasi</p>
+                        <input name="location" type="text" class="text-form" required>
+                        <p class="form-label">Mood</p>
+                        <div class="mood-row">
+                            <input type="radio" name="mood" id="happy-mood" class="mood-generator" value="Senang">
+                            <label for="happy-mood">(＾▽＾)</label><br>
+                            <input type="radio" name="mood" id="sad-mood" class="mood-generator" value="Sedih">
+                            <label for="sad-mood">(ㅠ﹏ㅠ)</label><br>
+                            <input type="radio" name="mood" id="angry-mood" class="mood-generator" value="Marah">
+                            <label for="angry-mood">୧༼ಠ益ಠ༽୨</label><br>
+                        </div>
+                        <input type="submit" class="btn" value="Predict!" id="submit">
+                    </form>
+                </div>
             </div>
-            <div class="div-form">
-                <form action="/getpred" method="POST" id="mood-form">
-                    <p class="form-label">Jenis Kelamin</p>
-                    <select name="sex" id="" class="text-form">
-                        <option value="Laki - Laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                    </select>
-                    <p class="form-label">Umur</p>
-                    <input name="age" type="number" maxlength="2" min="1" max="100" placeholder="18" class="text-form" required>
-                    <p class="form-label">Lokasi</p>
-                    <input name="location" type="text" class="text-form" required>
-                    <p class="form-label">Mood</p>
-                    <div class="mood-row">
-                        <input type="radio" name="mood" id="happy-mood" class="mood-generator" value="Senang">
-                        <label for="happy-mood">(＾▽＾)</label><br>
-                        <input type="radio" name="mood" id="sad-mood" class="mood-generator" value="Sedih">
-                        <label for="sad-mood">(ㅠ﹏ㅠ)</label><br>
-                        <input type="radio" name="mood" id="angry-mood" class="mood-generator" value="Marah">
-                        <label for="angry-mood">୧༼ಠ益ಠ༽୨</label><br>
-                    </div>
-                    <input type="submit" class="btn" value="Predict!">
-                </form>
+            <div class="predlabel">
+                <h1>Prediksi Makanan dan Minuman!</h1>
             </div>
-        </div>
+            <div id="contPred">
+            </div>
+        
 
     </body> 
 </html>
