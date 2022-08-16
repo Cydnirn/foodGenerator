@@ -6,6 +6,7 @@
         "helmet": "^5.1.1",
         "http": "^0.0.1-security",
         "http-msgs": "^1.0.9",
-        "path": "^0.12.7"
+        "path": "^0.12.7",
+        "terser": "^5.14.2"
     }
 }
