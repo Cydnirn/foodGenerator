@@ -7,6 +7,7 @@ This is a project for SaaS (Software as a Service) subject in SMKN 1 Jakarta whi
 <b>IN NO WAY THIS APP IS 100% ACCURATE</b>
 
 Built on top of Node.js as backend and sklearn library for Machine Learning model
+
 Managed to achieve 35 - 40% accuracy with 100 rows of data
 
 Developed by Group 2 in XII SIJA I which consist of:
